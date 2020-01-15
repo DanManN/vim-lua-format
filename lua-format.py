@@ -73,7 +73,7 @@ def main():
     command = [binary, '-i']
     if configFile:
         command.extend(['-c', configFile])
-    print(command)
+    # print(command)
     p = subprocess.Popen(
         command,
         stdout=subprocess.PIPE,
