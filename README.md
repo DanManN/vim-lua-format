@@ -1,21 +1,28 @@
 # vim-lua-format
 
-Support for vim for [LuaFormatter](https://github.com/Koihik/LuaFormatter).
+Vim support for [LuaFormatter](https://github.com/Koihik/LuaFormatter).
 
-## Install
+## Installation
 
-You have to add next lines in your `.vimrc` file:
+Use your plugin manager of choice.
+
+- [Pathogen](https://github.com/tpope/vim-pathogen)
+  - `git clone https://github.com/DanManN/vim-lua-format ~/.vim/bundle/vim-lua-format`
+- [Vundle](https://github.com/gmarik/vundle)
+  - Add `Bundle 'https://github.com/DanManN/vim-lua-format'` to .vimrc
+  - Run `:BundleInstall`
+- [NeoBundle](https://github.com/Shougo/neobundle.vim)
+  - Add `NeoBundle 'https://github.com/DanManN/vim-lua-format'` to .vimrc
+  - Run `:NeoBundleInstall`
+- [vim-plug](https://github.com/junegunn/vim-plug)
+  - Add `Plug 'https://github.com/DanManN/vim-lua-format'` to .vimrc
+  - Run `:PlugInstall`
+
+Then map the function LuaFormat to whatever you like. For example:
 
 ```
-  function! LuaFormat() 
-  " here you have to set path to lua-format.py file from the repo. In this case it was be copy to /usr/local/bin directory
-    pyf /usr/local/bin/lua-format.py
-  endfunction
-  autocmd FileType lua nnoremap <buffer> <c-k> :call LuaFormat()<cr>
-  autocmd BufWrite *.lua call LuaFormat()
+nnoremap <leader>f :call LuaFormat<Cr>
 ```
-
-After this when you press `<C-K>` or just save `*.lua` file, it will be automaticly formatted.
 
 ## Features
 
@@ -25,4 +32,4 @@ Reformats your Lua source code.
 
 * `.lua-format`: Specifies the style config file. [Style Options](https://github.com/Koihik/LuaFormatter/wiki/Style-Config)
 
-`.lua-format` file have to be in one of parrent directories or in source dir. If no one file - use default settings
+`.lua-format` file has to be in one of the parent directories or current source directory. If not found - falls back to default settings
