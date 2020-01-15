@@ -25,7 +25,7 @@ def findConfigFile(name, path):
 
 
 binary = 'lua-format'
-configFile = findConfigFile(".lua-format", vim.eval('expand("%:p")'))
+configFile = findConfigFile(".lua-format", vim.eval('expand("%:p:h")'))
 
 
 def get_buffer(encoding):
