@@ -25,7 +25,7 @@ def findConfigFile(name, path):
 
 
 binary = 'lua-format'
-configFile = findConfigFile(".lua-format", os.path.curdir)
+configFile = findConfigFile(".lua-format", vim.eval('expand("%:p")'))
 
 
 def get_buffer(encoding):
@@ -73,7 +73,7 @@ def main():
     command = [binary, '-i']
     if configFile:
         command.extend(['-c', configFile])
-    # print(command)
+    print(command)
     p = subprocess.Popen(
         command,
         stdout=subprocess.PIPE,
